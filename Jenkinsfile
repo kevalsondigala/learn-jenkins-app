@@ -6,6 +6,7 @@ pipeline {
             steps {
                 echo 'Hello World'
                 sh 'echo "Hello Developer"'
+                sh 'python --version'
             }
         }
     }
