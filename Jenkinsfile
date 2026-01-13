@@ -2,18 +2,22 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
-            steps {
-                echo 'Hello World'
-                sh 'echo "Hello Developer"'
+        stage('Build') {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                    reuseNode true
+                }
             }
-        }
-        stage('Check os version') {
             steps {
-                echo 'Checking in progress...'
-                echo 'Have some patience'
-                echo 'go drink some water'
-                sh 'cat /etc/os-release'
+                sh '''
+                    ls -la
+                    node --version
+                    npm --version 
+                    npm ci
+                    npm run build
+                    ls -la
+                '''
             }
         }
     }
