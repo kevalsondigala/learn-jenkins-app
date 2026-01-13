@@ -6,7 +6,14 @@ pipeline {
             steps {
                 echo 'Hello World'
                 sh 'echo "Hello Developer"'
-                sh 'python --version'
+            }
+        }
+        stage('Check os version') {
+            staps {
+                echo 'Checking in progress...'
+                echo 'Have some patience'
+                echo 'go drink some water'
+                sh 'cat /etc/os-release'
             }
         }
     }
