@@ -9,7 +9,7 @@ pipeline {
             }
         }
         stage('Check os version') {
-            staps {
+            steps {
                 echo 'Checking in progress...'
                 echo 'Have some patience'
                 echo 'go drink some water'
